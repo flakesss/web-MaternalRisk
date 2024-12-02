@@ -6,12 +6,19 @@ import numpy as np
 import joblib
 import os
 
+# Inisialisasi Flask app dengan menentukan folder template dan static
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 
+# Mendapatkan path ke root direktori (di mana wsgi.py berada)
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+# Path ke folder 'model'
+MODEL_FOLDER = os.path.join(ROOT_DIR, 'model')
+
 # Memuat model, scaler, dan label encoder
-model = joblib.load(os.path.join(os.path.dirname(__file__), '../model/model.pkl'))
-scaler = joblib.load(os.path.join(os.path.dirname(__file__), '../model/scaler.pkl'))
-label_encoder = joblib.load(os.path.join(os.path.dirname(__file__), '../model/label_encoder.pkl'))
+model = joblib.load(os.path.join(MODEL_FOLDER, 'model.pkl'))
+scaler = joblib.load(os.path.join(MODEL_FOLDER, 'scaler.pkl'))
+label_encoder = joblib.load(os.path.join(MODEL_FOLDER, 'label_encoder.pkl'))
 
 # Fungsi untuk memberikan saran berdasarkan tingkat risiko
 def give_advice(risk_level):
@@ -71,3 +78,7 @@ def index():
             return render_template('index.html', error=error_message)
     else:
         return render_template('index.html')
+
+# Menjalankan aplikasi secara lokal
+if __name__ == "__main__":
+    app.run(debug=True)
