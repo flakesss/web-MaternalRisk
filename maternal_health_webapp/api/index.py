@@ -6,14 +6,14 @@ import numpy as np
 import joblib
 import os
 
-# Inisialisasi Flask app dengan menentukan folder template dan static
-app = Flask(__name__, template_folder='../templates', static_folder='../static')
-
 # Mendapatkan path ke root direktori (di mana wsgi.py berada)
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 # Path ke folder 'model'
 MODEL_FOLDER = os.path.join(ROOT_DIR, 'model')
+
+# Inisialisasi Flask app dengan path absolut untuk templates dan static
+app = Flask(__name__, template_folder=os.path.join(ROOT_DIR, 'templates'), static_folder=os.path.join(ROOT_DIR, 'static'))
 
 # Memuat model, scaler, dan label encoder
 model = joblib.load(os.path.join(MODEL_FOLDER, 'model.pkl'))
