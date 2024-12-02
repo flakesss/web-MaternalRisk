@@ -1,0 +1,142 @@
+/* static/styles.css */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #ffecd2, #fcb69f); /* Gradien warna ceria */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #c2185b; /* Warna pink gelap */
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #6a1b9a; /* Warna ungu */
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 2px solid #ce93d8;
+    border-radius: 10px;
+    background-color: #f3e5f5;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #c2185b;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ec407a; /* Tombol pink cerah */
+    color: #ffffff;
+    border: none;
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #d81b60; /* Warna tombol saat hover */
+    transform: scale(1.05);
+}
+
+.result {
+    margin-top: 30px;
+    text-align: center;
+    padding: 25px;
+    border-radius: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.result.low-risk {
+    background-color: #e8f5e9; /* Hijau muda */
+    color: #2e7d32; /* Hijau gelap */
+}
+
+.result.mid-risk {
+    background-color: #fff8e1; /* Kuning muda */
+    color: #f9a825; /* Kuning gelap */
+}
+
+.result.high-risk {
+    background-color: #ffebee; /* Merah muda */
+    color: #c62828; /* Merah gelap */
+}
+
+.risk-text {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.error {
+    color: #d32f2f; /* Warna merah untuk error */
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.advice {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #424242;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #757575;
+    font-size: 14px;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 120px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
